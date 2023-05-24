@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>About Us</title>
+</head>
+<body>
+<nav>
+    <div class="menu">
+        <div class="logo"><a th:href="@{/}">ArtMuse</a></div>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/about}"></i>About</a></li>
+            <li><a th:href="@{/artist}">Our Artists</a></li>
+            <li><a th:href="@{/product}">Products</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+            <li><a th:href="@{/login}">Be Our Artist</a></li>
+        </ul>
+    </div>
+</nav>
+
+<style th:inline="text">
+    /* Define font styles for the header and paragraph */
+    h1, p {
+        font-family: 'Brush Script MT', cursive;
+        font-size: 24px;
+    }
+
+    /* Add neumorphism styles */
+    h1 {
+        margin: 20px 0 20px 20px;
+        padding: 20px;
+        background-color: #f0f0f0;
+        box-shadow: 4px 4px 8px #b7b7b7, -4px -4px 8px #ffffff;
+    }
+
+    p {
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+        box-shadow: 4px 4px 8px #b7b7b7, -4px -4px 8px #ffffff;
+        max-width: 600px;
+    }
+</style>
+
+<h1>About Us</h1>
+<p>Welcome to our art gallery! We are dedicated to showcasing the best of contemporary art from around the world.
+    Our gallery features a wide range of styles and mediums, including painting, sculpture, photography,
+    and mixed media. We strive to foster a sense of community through our exhibitions and events,
+    and we are committed to supporting emerging artists by providing them with a platform to share their work
+    with a wider audience. Whether you are an art enthusiast, a collector, or simply looking for
+    a cultural experience, we invite you to come and discover the vibrant and diverse world of contemporary
+    art at our gallery.</p>
+
+</body>
+</html>

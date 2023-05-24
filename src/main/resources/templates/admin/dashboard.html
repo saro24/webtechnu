@@ -1,0 +1,165 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <title>User Dashboard</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Welcome to Admin Dashboard</h2>-->
+<!--<p>Logged as: <span sec:authentication="name"></span></p>-->
+<!--<p>Has role: <span sec:authentication="authorities"></span></p>-->
+<!--<p><a th:href="@{/}">Home</a></p>-->
+<!--<p><a th:href="@{/logout}">Log out</a></p>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/st.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <style>
+        /* Add these CSS styles to your stylesheet */
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagination ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pagination li {
+            background-color: #e0e5ec;
+            border-radius: 8px;
+            padding: 0.5rem;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1),
+            -2px -2px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        .pagination li.disabled {
+            opacity: 0.5;
+        }
+
+        .pagination li.active {
+            background-color: #6495ED;
+            color: #fff;
+        }
+
+        .pagination a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .pagination a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+<div class="side_bar">
+    <div class="title">
+        <div class="logo">ArMuse</div>
+    </div>
+    <ul>
+        <li><a th:href="@{/admin/dashboard}"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+        <li><a th:href="@{/home}"><i class="fas fa-link"></i>Home</a></li>
+        <li><a th:href="@{/about}"><i class="fas fa-question-circle"></i>About</a></li>
+        <li><a th:href="@{/contact}"><i class="fas fa-sliders-h"></i>Contact</a></li>
+        <li><a th:href="@{/logout}"><i class="fas fa-link"></i>Log out</a></li>
+    </ul>
+</div>
+
+
+
+<h2>Welcome to Admin Dashboard</h2>
+<!-- Display the name of the currently logged-in user -->
+<p>Logged as: <span sec:authentication="name"></span></p>
+<!-- Display the roles of the currently logged-in user -->
+<p>Has role: <span sec:authentication="authorities"></span></p>
+<!--<p><a th:href="@{/}">Home</a></p>-->
+<!--<p><a th:href="@{/logout}">Log out</a></p>-->
+
+<form th:action="@{/search}" method="get">
+    <input type="text" name="search" placeholder="Search...">
+    <button type="submit">Search</button>
+<!--    <button type="submit">Delete</button>-->
+<!--    <button type="submit">Update</button>-->
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>UserName</th>
+        <th>Id</th>
+        <th>Artist Name</th>
+        <th>Email</th>
+        <th>Location</th>
+        <th>Art Type</th>
+        <th>Portfolio</th>
+        <th>Gender</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody th:with="count=0">
+    <!-- Iterate over a list of users and display their details -->
+    <tr th:each = " model: ${allArtists}">
+        <td th:text="${model.username}"></td>
+        <td th:text="${model.id}"></td>
+        <td th:text="${model.name}"></td>
+        <td th:text="${model.email}"></td>
+        <td th:text="${model.location}"></td>
+        <td th:text="${model.artType}"></td>
+        <td th:text="${model.fileName}"></td>
+        <td th:text="${model.gender}"></td>
+<!--        <td> <a th:href="@{/registration)}">Update</a>-->
+            <td
+                <a th:href="@{/admin/dashboard/delete/{id}(id=${model.id})}">Delete</a><br>
+                <a th:href="@{/artist/download/{id}(id=${model.id})}">Download Portfolio</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<div class="pagination">
+    <ul>
+        <li th:class="${currentPage == 0 ? 'disabled' : ''}">
+            <a th:href="@{/admin/dashboard(page=0)}">First</a>
+        </li>
+        <li th:class="${currentPage == 0 ? 'disabled' : ''}">
+            <a th:href="@{/admin/dashboard(page=__${currentPage - 1}__)}">Previous</a>
+        </li>
+        <li th:each="pageNumber : ${#numbers.sequence(0, totalPages - 1)}"
+            th:class="${pageNumber == currentPage ? 'active' : ''}">
+            <a th:href="@{/admin/dashboard(page=${pageNumber})}" th:text="${pageNumber + 1}"></a>
+        </li>
+        <li th:class="${currentPage == totalPages - 1 ? 'disabled' : ''}">
+            <a th:href="@{/admin/dashboard(page=__${currentPage + 1}__)}">Next</a>
+        </li>
+        <li th:class="${currentPage == totalPages - 1 ? 'disabled' : ''}">
+            <a th:href="@{/admin/dashboard(page=${totalPages - 1})}">Last</a>
+        </li>
+    </ul>
+</div>
+<!--<div>-->
+<!--    &lt;!&ndash; Previous Page Button &ndash;&gt;-->
+<!--    <a th:if="${currentPage > 0}" th:href="@{/admin/dashboard(page=${currentPage - 1})}">Previous</a>-->
+
+<!--    &lt;!&ndash; Current Page &ndash;&gt;-->
+<!--    <span>Page: th:text="${currentPage + 1}"</span>-->
+
+<!--    &lt;!&ndash; Total Pages &ndash;&gt;-->
+<!--    <span>Total Pages: ${totalPages}</span>-->
+
+<!--    &lt;!&ndash; Next Page Button &ndash;&gt;-->
+<!--    <a th:if="${currentPage < totalPages - 1}" th:href="@{/admin/dashboard(page=${currentPage + 1})}">Next</a>-->
+<!--</div>-->
+
+
+</body>
+</html>

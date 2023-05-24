@@ -1,0 +1,267 @@
+nav{
+    width: 100%;
+    padding: 12px 0;
+    background: #ecf0f3;
+    box-shadow: -3px -3px 7px #ffffff,
+               3px 3px 5px #ceced1,
+               inset -3px -3px 7px #ffffff,
+               inset 3px 3px 5px #ceced1;
+  }
+  nav .menu{
+    max-width: 1270px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .menu .logo a{
+    font-size: 28px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #31344b;
+  }
+  .menu ul{
+    list-style: none;
+    display: flex;
+  }
+  .menu ul a{
+    margin:0 8px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #31344b;
+    font-weight: 400;
+    display: inline-flex;
+    padding: 10px 12px;
+   box-shadow: -3px -3px 7px #ffffff,
+              3px 3px 5px #ceced1;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .menu ul a:hover:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset -3px -3px 7px #ffffff,
+                inset 3px 3px 5px #ceced1;
+  }
+  .center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .upper{
+    font-size: 40px;
+    font-weight: 600;
+    color: #31344b;
+  }
+  .lower{
+    font-size: 40px;
+    font-weight: 600;
+    color: #31344b;
+  }
+  .menu ul a:hover{
+    color: #3498db;
+  }
+  nav label.btn{
+    color: #31344b;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+  }
+  nav label.cancel{
+    position: absolute;
+    top: 25px;
+    right: 30px;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width:940px) {
+    .menu ul{
+      display: block;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      max-width: 400px;
+      padding-top: 45px;
+      height: 100%;
+      background: #ecf0f3;
+      box-shadow: 0 5px 10px #b0b0b5;
+      z-index: 12;
+      transition: all 0.3s ease;
+    }
+    .menu ul a{
+     display: block;
+     font-size: 23px;
+     width: 100%;
+     margin-top: 30px;
+     box-shadow: none;
+     text-align: center;
+    }
+    .menu ul a:hover:before{
+      box-shadow: none;
+    }
+    nav label.bars{
+      display: block;
+    }
+    #check:checked ~ label.bars{
+      display: none;
+    }
+    #check:checked ~ ul label.cancel{
+      display: block;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    /* user-select: none; */
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  body{
+    background: #ecf0f3;
+  }
+.scroll-animations-example {
+    > .scrollsection {
+        padding: 10vh 10vh 10vh 10vmax;
+        min-width: 550vh;
+    }
+
+    > .scrollsection > .item {
+        display: inline-block;
+        position: relative;
+        margin: 0 -30vh 0 3vh;
+    }
+
+    > .scrollsection > .item::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: auto;
+    }
+
+    > .scrollsection > .item.-big {
+        height: 80vh;
+        width: 60vh;
+    }
+
+    > .scrollsection > .item.-big.-horizontal {
+        height: 60vh;
+        width: 80vh;
+    }
+
+    > .scrollsection > .item.-normal {
+        height: 60vh;
+        width: 45vh;
+        z-index: 1;
+    }
+
+    > .scrollsection > .item.-normal.-horizontal {
+        height: 45vh;
+        width: 60vh;
+    }
+
+    > .scrollsection > .item.-normal:nth-of-type(3n) {
+        bottom: 5vh;
+    }
+
+    > .scrollsection > .item.-normal:nth-of-type(4n) {
+        bottom: -5vh;
+    }
+
+    > .scrollsection > .item.-small {
+        height: 40vh;
+        width: 30vh;
+        z-index: 2;
+    }
+
+    > .scrollsection > .item.-small.-horizontal {
+        height: 30vh;
+        width: 40vh;
+    }
+
+    > .scrollsection > .item.-small:nth-of-type(3n) {
+        bottom: 13vh;
+    }
+
+    > .scrollsection > .item.-small:nth-of-type(4n) {
+        bottom: -13vh;
+    }
+
+    > .scrollsection > .item > .image {
+        height: auto;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: grayscale(1);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(0) translateY(0) scale(1);
+        transition: filter .3s ease,
+            opacity 1s ease,
+            transform 1s ease;
+    }
+
+    > .scrollsection > .item:nth-of-type(4n) > .image {
+        transform: translateX(-30vh) translateY(-30vh) scale(.8);
+        transition-delay: 0;
+    }
+
+    > .scrollsection > .item:nth-of-type(4n - 1) > .image {
+        transform: translateX(30vh) translateY(30vh) scale(.8);
+        transition-delay: .05s;
+    }
+
+    > .scrollsection > .item:nth-of-type(4n - 2) > .image {
+        transform: translateX(-30vh) translateY(30vh) scale(.8);
+        transition-delay: .1s;
+    }
+
+    > .scrollsection > .item:nth-of-type(4n - 3) > .image {
+        transform: translateX(-30vh) translateY(-30vh) scale(.8);
+        transition-delay: .15s;
+    }
+
+    > .scrollsection > .item > .image.-active {
+        transform: translateX(0) translateY(0) scale(1);
+        opacity: .8;
+        pointer-events: auto;
+        transition: filter .3s ease,
+            opacity 1s ease,
+            transform 1s ease;
+    }
+
+    > .scrollsection > .item > .image.-clicked {
+        transform: translateX(0) translateY(0) scale(5);
+        opacity: 0;
+        pointer-events: auto;
+        transition: filter .3s ease,
+            opacity 1s ease,
+            transform 1s ease;
+    }
+
+    > .scrollsection > .item > .image.-active:hover {
+        height: auto;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: grayscale(0);
+        opacity: 1;
+        cursor: pointer;
+    }
+}
+

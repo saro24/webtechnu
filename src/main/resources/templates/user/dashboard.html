@@ -1,0 +1,62 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>User Dashboard</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Welcome to User Dashboard</h2>-->
+<!--<p>Logged as: <span sec:authentication="name"></span></p>-->
+<!--<p>Has role: <span sec:authentication="authorities"></span></p>-->
+<!--<div>-->
+<!--    <p><a th:href="@{/}">Home</a></p>-->
+<!--    <p><a th:href="@{/logout}">Log out</a></p>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">User Dashboard</title>
+    <link rel="stylesheet" href="/css/st.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</head>
+<body>
+<div class="side_bar">
+    <div class="title">
+        <div class="logo">ArMuse</div>
+    </div>
+    <ul>
+        <li><a th:href="@{/dashboard}"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+        <li><a th:href="@{/home}"><i class="fas fa-link"></i>home</a></li>
+        <li><a th:href="@{/about}"><i class="fas fa-question-circle"></i>About</a></li>
+        <li><a th:href="@{/contact}"><i class="fas fa-sliders-h"></i>Contact</a></li>
+        <li><a th:href="@{/registration}"><i class="fas fa-phone-volume"></i>Register to ArtMuse</a></li>
+        <li><a th:href="@{/logout}"><i class="fas fa-link"></i>Log out</a></li>
+    </ul>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="media_icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+</div>
+<div class="content">
+    <h2>Welcome to Artist Dashboard</h2>
+    <p>Logged as: <span th:text="${#authentication.getName()}"></span></p>
+    <p>Has role: <span th:text="${#authentication.getAuthorities()[0].getAuthority()}"></span></p>
+<!--    <form th:action="@{/artist/update/{id}(id=${model.id})}" method="post">-->
+<!--    <button type="submit" >Update Your Information</button>-->
+<!--    </form>-->
+<!--    <form th:action="@{/logout}" method="post">-->
+<!--        <button type="submit">Logout</button>-->
+<!--    </form>-->
+</div>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Card</title>
+  <meta property="og:image" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
+<meta property="og:image:secure_url" content="//image.prntscr.com/image/93970e70e1f045e1aff76e05469008d8.png" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="400" />
+<meta property="og:image:height" content="300" />
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css'>
+<link rel="stylesheet" href="/css/pro.css">
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+    <nav>
+      <div class="menu">
+        <div class="logo"><a th:href="@{/}">ArtMuse</a></div>
+        <ul>
+          <li><a th:href="@{/}">Home</a></li>
+          <li><a th:href="@{/about}"></i>About</a></li>
+          <li><a th:href="@{/artist}">Our Artists</a></li>
+          <li><a th:href="@{/product}">Products</a></li>
+          <li><a th:href="@{/contact}">Contact</a></li>
+          <li><a th:href="@{/login}">Be Our Artist</a></li>
+        </ul>
+      </div>
+  
+        </nav>
+<div class="shell">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img">
+            <img src="/img/60.jpg" alt="Product" class="img-responsive" />
+          </div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Ethnic</span>
+            </div>
+            <div class="title-product">
+              <h3>My face not my heart</h3>
+            </div>
+            <div class="description-prod">
+              <p> A mesmerizing representation of emotions and identity.<br> 
+                <strong>size:</strong> 24 inches by 36 inches </p>
+                   </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">$500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="/img/61.jpeg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Introvert</span>
+            </div>
+            <div class="title-product">
+              <h3>Hidden Reflections</h3>
+            </div>
+            <div class="description-prod">
+              <p>A poignant exploration of the concealed emotions <br>
+                <strong>size:</strong> 30 inches by 36 inches</p>
+              </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">$550.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="/img/62.jpeg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Beauty</span>
+            </div>
+            <div class="title-product">
+              <h3>Emotive Veneer</h3>
+            </div>
+            <div class="description-prod">
+                <p> A thought-provoking of the emotional façade <br>
+                    <strong>size:</strong> 30 inches by 46 inches</p>
+                </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">$430.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="/img/63.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Drama</span>
+            </div>
+            <div class="title-product">
+              <h3>Masked Whispers</h3>
+            </div>
+            <div class="description-prod">
+                <p>A captivating portrayal of the secrets and untold stories <br>
+                    <strong>size:</strong> 40 inches by 56 inches</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">$600.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img">
+            <img src="/img/64.webp" alt="Product" class="img-responsive" />
+          </div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Ethnic</span>
+            </div>
+            <div class="title-product">
+              <h3>Unveiled Identities</h3>
+            </div>
+            <div class="description-prod">
+                <p> An intriguing depiction of the multifaceted nature of human beings <br>
+                    <strong>size:</strong> 46 inches by 52 inches</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">$500.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="/img/65.jpg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Introvert</span>
+            </div>
+            <div class="title-product">
+              <h3>Beneath the Veil</h3>
+            </div>
+            <div class="description-prod">
+              
+                <p> A mesmerizing artwork of superficial layers <br>
+                    <strong>size:</strong> 45 inches by 54 inches</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">$900.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="/img/66.jpeg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Beauty</span>
+            </div>
+            <div class="title-product">
+              <h3>Spectrum of Emotions</h3>
+            </div>
+            <div class="description-prod">
+              
+                <p>A captivating exploration of the intricate range of emotions <br>
+                    <strong>size:</strong> 50 inches by 76 inches</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">$700.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="wsk-cp-product">
+          <div class="wsk-cp-img"><img src="/img/67.jpeg" alt="Product" class="img-responsive" /></div>
+          <div class="wsk-cp-text">
+            <div class="category">
+              <span>Drama</span>
+            </div>
+            <div class="title-product">
+              <h3>The Unseen Canvas</h3>
+            </div>
+            <div class="description-prod">
+              
+                <p> A compelling portrayal of the internal struggles and profound emotions <br>
+                    <strong>size:</strong> 70 inches by 86 inches</p>
+            </div>
+            <div class="card-footer">
+              <div class="wcf-left"><span class="price">$960.000</span></div>
+              <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

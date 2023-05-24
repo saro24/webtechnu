@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Login Form UI</title>
+  <link rel="stylesheet" th:href="@{/css/sty.css}"/>
+  <link rel="stylesheet" th:href="@{/css/st.css}"/>
+  <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css}"/>
+</head>
+<body>
+<div class="side_bar">
+  <div class="title">
+    <div class="logo">ArtMuse</div>
+  </div>
+  <ul>
+    <li><a th:href="@{/dashboard}"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+    <li><a th:href="@{/}"><i class="fas fa-link"></i>home</a></li>
+    <li><a th:href="@{/about}"><i class="fas fa-question-circle"></i>About</a></li>
+    <li><a th:href="@{/contact}"><i class="fas fa-sliders-h"></i>Contact</a></li>
+    <li><a th:href="@{/registration}"><i class="fas fa-phone-volume"></i>Register to ArtMuse</a></li>
+    <li><a th:href="@{/home}"><i class="fas fa-link"></i>Log out</a></li>
+  </ul>
+</div>
+<div class="content">
+  <div class="text">
+    Registration Form
+  </div>
+  <form th:action="@{/artist/save}" th:object="${artist}" method="post" enctype="multipart/form-data">
+
+      <div class="field">
+          <!--      <span class="fas fa-user"></span>-->
+          <input type="text" name="username" disabled="true"/>
+          <span th:text="${#authentication.getName()}"></span>
+      </div>
+
+    <div class="field">
+<!--      <span class="fas fa-user"></span>-->
+      <input type="text" name="name"  required/>
+      <label>Artist Name</label>
+    </div>
+    <div class="field">
+<!--      <span class="fas fa-envelope"></span>-->
+      <input type="text" name="email"  required/>
+      <label>Social Media Profile</label>
+    </div>
+    <br/>
+    <div class="field">
+      <input type="text" name="location"  required/>
+<!--      <span class="fas fa-globe"></span>-->
+      <label>location</label>
+    </div>
+    <select name="artType">
+      <option value="">Select Art Medium</option>
+      <option value="craft">Craft</option>
+      <option value="painting">Painting</option>
+      <option value="photograpy">Photography</option>
+      <option value="poetry">Poetry</option>
+    </select>
+      <div class="upload">
+          <input type="file" id="file" name="portfolioFile" class="inputfile" onchange="updateLabel()"/>
+          <label for="file" class="file-label">
+              <i class="fa fa-upload"></i>
+              <span id="file-label-text">Upload Portfolio</span>
+          </label>
+      </div>
+    <div class="gender-radio">
+      <input type="radio" id="female" name="gender" value="female"/>
+      <label for="female" class="gender">Female</label>
+  
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male" class="gender">Male</label>
+  
+  <input type="radio" id="secret" name="gender" value="secret">
+  <label for="secret" class="gender">Secret</label>
+</div>
+<br>
+<br>
+          
+            <button>Apply</button>
+
+
+
+</center>   
+         </form>
+      </div>
+<script>
+    function updateLabel() {
+        var input = document.getElementById('file');
+        var label = document.getElementById('file-label-text');
+
+        if (input.files && input.files.length > 0) {
+            label.innerHTML = input.files[0].name;
+        } else {
+            label.innerHTML = "Upload Portfolio";
+        }
+    }
+</script>
+   </body>
+</html>

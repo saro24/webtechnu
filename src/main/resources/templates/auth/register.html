@@ -1,0 +1,108 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Login</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form th:action="@{/register}" th:object="${user}" method="post">-->
+<!--    <h3>Registration</h3>-->
+<!--    <input type="text" th:field="*{firstName}" placeholder="First Name" /> <br/><br/>-->
+<!--    <input type="text" th:field="*{lastName}" placeholder="Last Name" /> <br/><br/>-->
+<!--    <input type="text" th:field="*{mobile}" placeholder="Mobile Number" /> <br/><br/>-->
+<!--    <input type="text" th:field="*{email}" placeholder="Email" /> <br/><br/>-->
+<!--    <input type="password" th:field="*{password}" placeholder="Password" /> <br/><br/>-->
+<!--    <select th:field="*{role}" required>-->
+<!--        <option value="">Select</option>-->
+<!--        <option value="ADMIN">ADMIN</option>-->
+<!--        <option value="USER">USER</option>-->
+<!--    </select> <br/><br/>-->
+<!--    <button type="submit">Register</button> | <a th:href="@{|/login|}" th:text="'Log in'"></a>-->
+<!--    <span th:utext="${successMessage}"></span>-->
+<!--    <div th:if="${bindingResult!=null && bindingResult.getAllErrors()!=null}">-->
+<!--        <ul th:each="data : ${bindingResult.getAllErrors()}">-->
+<!--            <li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Login Form UI</title>
+    <link rel="stylesheet" href="/css/sty.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+</head>
+<body>
+<nav>
+    <div class="menu">
+        <div class="logo"><a th:href="@{/home}">ArtMuse</a></div>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/about}"></i>About</a></li>
+            <li><a th:href="@{/artist}">Our Artists</a></li>
+            <li><a th:href="@{/product}">Products</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+            <li><a th:href="@{/login}">Be Our Artist</a></li>
+        </ul>
+    </div>
+
+</nav>
+<br><br>
+<br>
+<div class="content">
+    <div class="text">
+        Signup Form
+    </div>
+    <form th:action="@{/register}" th:object="${user}" method="post">
+
+        <div class="field">
+            <input type="text" th:field="*{email}" required>
+            <span class="fas fa-user"></span>
+            <label>Email</label>
+        </div>
+        <select th:field="*{role}" required>
+            <option value="">Select Role</option>
+            <option value="ADMIN">Admin</option>
+            <option value="USER">User</option>
+        </select>
+        <div class="field">
+            <input type="password" th:field="*{password}" required>
+            <span class="fas fa-lock"></span>
+            <label>Password</label>
+        </div>
+        <br>
+        <div class="field">
+            <input type="password"  required>
+            <span class="fas fa-lock"></span>
+            <label>Confirm Password</label>
+        </div>
+        <div class="forgot-pass">
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <button>Sign in</button>
+        <div class="sign-up">
+            Already have account?
+            <a th:href="@{/login}" th:text="'Log in'"></a>
+        </div>
+
+        <span th:utext="${successMessage}"></span>
+        <div th:if="${bindingResult!=null && bindingResult.getAllErrors()!=null}">
+            <ul th:each="data : ${bindingResult.getAllErrors()}">
+                <li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
+            </ul>
+        </div>
+
+
+</form>
+</div>
+</body>
+</html>
